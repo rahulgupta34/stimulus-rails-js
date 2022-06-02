@@ -1,0 +1,21 @@
+<div id="<%= dom_id post %>">
+    <p>
+        <strong>Title:</strong>
+        <%= post.title %>
+    </p>
+
+    <p>
+        <strong>Body:</strong>
+        <%= post.body %>
+    </p>
+
+    <p>
+        <%= link_to "Show this post", post, data: { turbo_frame: "modal" } %>
+    </p>
+
+    <p>
+        <%= link_to "Edit this post", edit_post_path(post), data: { turbo_frame: "modal" } %>
+        <%= button_to "Destroy this post", post_path(post), method: :delete %>
+    </p>
+
+</div>
