@@ -1,0 +1,30 @@
+<%= form_with(model: address) do |form| %>
+    <% if address.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(address.errors.count, "error") %>
+                prohibited this address from being saved:</h2>
+
+            <ul>
+                <% address.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div data-controller="hello">
+        <div>
+            <%= form.label :country, style: "display: block" %>
+            <%= form.select :country, CS.countries.invert, { prompt: "Select Country" }, data: {action: "change->hello#change"} %>
+        </div>
+
+        <div>
+            <%= form.label :state, style: "display: block" %>
+            <%= form.select :state, [], { prompt: "Select State" }, data: { hello_target: "stateSelect" } %>
+        </div>
+
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

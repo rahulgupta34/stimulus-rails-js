@@ -1,0 +1,13 @@
+<h1>Stimulus index</h1>
+
+<div data-controller="clipboard" name="clicpboard">
+    <div data-clipboard-target="errorMessage"></div>
+    <div data-clipboard-target="results"></div>
+    PIN:
+    <input type="text" value="1234" ><br/>
+        <input type="text" data-clipboard-target="query" name="chnage" data-action="change->clipboard#changeAction">
+            <button data-action="click->clipboard#copy" data-clipboard-id-param="123456">Copy to Clipboard</button>
+</div>
+
+
+<%= link_to "Preview Stimulus", "/preview" %>
