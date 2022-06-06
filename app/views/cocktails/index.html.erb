@@ -1,0 +1,19 @@
+<h1>Cocktails index</h1>
+
+<div data-controller="search">
+<div data-search-target="message" style="margin: 20px;color:red;"></div>
+    <%= form_with(url: "/live_search", method: :get ) do |f| %>
+        <%= f.label :query, "Search for" %>
+        <%= f.text_field :query, data: { action: "input->search#submit" } %>
+    <% end %>
+
+    <div class="container">
+        <h1 class="text-center">Cocktails</h1>
+        <div class="row justify-content-center">
+            <div class="col-xs-12 col-sm-6" data-search-target="results" id="results"> 
+                <%= render @cocktails %>
+            </div>
+        </div>
+    </div>
+
+</div>
