@@ -77,3 +77,4 @@ gem "city-state", "~> 0.1.0"
 gem "pry", "~> 0.14.1"
 gem 'requestjs-rails'
 
+gem "pg_search"

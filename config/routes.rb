@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "posts#index"
+  get "/live_search", to: "cocktails#index"
+  get "/all_get_data", to: "cocktails#get_data"
 end
