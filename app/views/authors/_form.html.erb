@@ -1,0 +1,36 @@
+<%= form_with(model: author) do |form| %>
+    <% if author.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(author.errors.count, "error") %>
+                prohibited this author from being saved:</h2>
+
+            <ul>
+                <% author.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div>
+        <%= form.label :name, style: "display: block" %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div data-controller="form-element" data-form-element-url-value="/" >
+  
+        <div>
+            <%= form.label :access, style: "display: block", data: {form_element_target: "label"}  %>
+            <%= form.select :access, Author.accesses.keys, { prompt: "Select" }, data: { action: "change->form-element#showHide" } %>
+        </div>
+
+        <div data-form-element-target="display" style="display:none;" >
+            <%= form.label :passcode, style: "display: block" %>
+            <%= form.text_field :passcode %>
+        </div>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

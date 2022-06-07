@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Authors</h1>
+
+<div>
+    <%= turbo_stream_from "authors" %>
+    <%= turbo_frame_tag "authors" do %>
+
+        <div id="authors">
+            <% @authors.each do |author| %>
+                <%= render author %>
+                
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+<%= link_to "New author", new_author_path %>
