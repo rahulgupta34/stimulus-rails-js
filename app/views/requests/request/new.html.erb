@@ -1,0 +1,32 @@
+<%= turbo_frame_tag :modal do %>
+    <% if alert %>
+        <%= alert %>
+    <% end %>
+    <div data-controller="request">
+        <div data-request-target="divElement">
+            <h1>this is new request page</h1>
+            <%= form_with(model: @request, data: { action: "submit->request#submitEnd" }) do |form| %>
+
+                <div>
+                    <%= form.label :name, style: "display: block" %>
+                    <%= form.text_field :name, data: { request_target: "name" } %>
+                </div>
+
+                <div>
+                    <%= form.label :age, style: "display: block" %>
+                    <%= form.number_field :age, data: { request_target:"age" } %>
+                </div>
+
+                <div>
+                    <%= form.submit "Add Request" %>
+                </div>
+
+                <div>
+                    <button data-action="click->request#hideForm" type="button">Cancel</button>
+                </div>
+
+            <% end %>
+        </div>
+    </div>
+
+<% end %>

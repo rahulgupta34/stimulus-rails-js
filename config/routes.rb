@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   root "posts#index"
   get "/live_search", to: "cocktails#index"
   get "/all_get_data", to: "cocktails#get_data"
+ 
+  get "/request_post", to: "requests/request#index"
+  get "/request", to: "requests/request#new"
+  post "/request", to: "requests/request#create"
+  
 end
